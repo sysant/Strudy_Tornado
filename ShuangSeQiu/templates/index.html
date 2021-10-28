@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ static_url("style.css") }}">
+        <title>双色球</title>
+    </head>
+    <body>
+        <h1>生成双色球</h1>
+        <p>点击生成双色球注数(默认1注):</p>
+        <form method="post" action="/create">
+            <input type="number" name="create" class="form_input" placeholder="1">
+<!--            <textarea rows=1 cols=10 name="create" onloadeddata="1"></textarea></p>-->
+        <input type="submit">
+        </form>
+    </body>
+</html>

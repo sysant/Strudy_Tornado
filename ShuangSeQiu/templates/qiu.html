@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ static_url("style.css") }}">
+        <title>机选双色球</title>
+    </head>
+    <body>
+        <h1>您机选了{{ How_balls }} 注双色球:</h1>
+        <p>
+            {% for ball in balls %}
+            <span>{{ball}}</span></br>
+            {% end %}
+        </p>
+    </body>
+</html>
