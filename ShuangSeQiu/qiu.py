@@ -25,13 +25,13 @@ class CreateQiuHandler(tornado.web.RequestHandler, ABC):
         Balls = dict()
         balls_l = list()
         num = int(num)
-        if num <= 1:
+        if num <= 1:   # 不填写注数或注数为1
             Balls['红球'] = sorted(random.sample(range(1, 34), 6))
             Balls['蓝球'] = random.sample(range(1, 17), 1)
             balls_l.append(Balls)
             # return balls_l
         else:
-            while len(balls_l) < num:
+            while len(balls_l) < num:  # 非默认且大于1注时
                 Balls['红球'] = sorted(random.sample(range(1, 34), 6))
                 Balls['蓝球'] = random.sample(range(1, 17), 1)
 #                print(Balls, type(Balls))
@@ -41,13 +41,13 @@ class CreateQiuHandler(tornado.web.RequestHandler, ABC):
         return balls_l
 
     def post(self):
-        create_how_ball = self.get_argument('create')   # 依据前端网页中的 textare中的name 收集
+        create_how_ball = self.get_argument('create')   # 依据前端网页中的 input 的name 收集
         if not create_how_ball:
             create_how_ball = 1
         else:
             create_how_ball = int(create_how_ball)
         balls = self.CreateBalls(create_how_ball)
-        self.render('qiu.html', How_balls=create_how_ball, balls=balls)  # choice可以传python函数到前端执行
+        self.render('qiu.html', How_balls=create_how_ball, balls=balls) 
 
 
 if __name__ == '__main__':
@@ -56,7 +56,7 @@ if __name__ == '__main__':
         handlers=[(r'/', IndexHandler), (r'/create', CreateQiuHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), "static"),
-        debug=True
+#        debug=True     #部署测试时打开,否则关闭
     )
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
