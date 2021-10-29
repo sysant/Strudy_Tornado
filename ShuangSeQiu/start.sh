@@ -1,7 +1,7 @@
 #!/bin/bash
 # 20210623 at san
 # chkconfig: 2345 10 90
-# description: logclid
+# description: ShuangSeQiu 
 
 . /etc/init.d/functions
 
