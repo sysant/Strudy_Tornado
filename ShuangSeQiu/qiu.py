@@ -2,6 +2,7 @@
 
 import os.path
 import random
+import time
 from abc import ABC
 
 import tornado.httpserver
@@ -47,7 +48,10 @@ class CreateQiuHandler(tornado.web.RequestHandler, ABC):
         else:
             create_how_ball = int(create_how_ball)
         balls = self.CreateBalls(create_how_ball)
-        self.render('qiu.html', How_balls=create_how_ball, balls=balls) 
+        self.render('qiu.html', How_balls=create_how_ball, 
+		     Date=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+                     Balls=enumerate(balls)
+                    ) 
 
 
 if __name__ == '__main__':

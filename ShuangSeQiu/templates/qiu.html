@@ -7,8 +7,10 @@
     <body>
         <h1>您机选了{{ How_balls }} 注双色球:</h1>
         <p>
-            {% for ball in balls %}
-            <span>{{ball}}</span></br>
+            <b></b><span>时间：{{ Date }}</span></b></br>
+            <span>------------------------------------</span></br>
+           {% for i,ball in Balls %}
+                <span> {{ i +1 }} --> {{ball}} </span> </br>
             {% end %}
         </p>
     </body>
