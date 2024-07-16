@@ -1,6 +1,30 @@
-body {
-    font-family: Helvetica,Arial,sans-serif;
-    width: 600px;
-    margin: 0 auto;
-}
-.replaced:hover { color: #00f; }
+/* 基本的样式 */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+  /* 使用百分比或视口单位进行自适应 */
+    width: 100%; /* 使用百分比确保容器始终填充其父元素 */
+    max-width: 1200px; /* 设置最大宽度以防止过大 */
+    margin: 0 auto; /* 居中布局 */
+    padding: 20px;
+    box-sizing: border-box; /* 确保padding不会增加元素的总宽度 */
+  }
+
+  /* 响应式媒体查询 */
+  @media (max-width: 768px) {
+    .container {
+      /* 在较小的屏幕上，你可能想要改变布局或字体大小 */
+      padding: 10px;
+    }
+    /* 还可以添加更多针对小屏幕的样式 */
+  }
+
+  /* 其他元素的样式 */
+  h1 {
+    text-align: center;
+  }
+  p {
+    margin-bottom: 1em;
+  }
