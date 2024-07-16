@@ -3,6 +3,7 @@
 import os.path
 import random
 import time
+import logging
 from abc import ABC
 
 import tornado.httpserver
@@ -15,6 +16,9 @@ from tornado.options import define, options
 
 define("port", default=10800, help="run on the given port", type=int)
 
+# 使用basicConfig()方法来配置日志的基本信息
+logging.basicConfig(filename='access.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 class IndexHandler(tornado.web.RequestHandler, ABC):
     def get(self):
@@ -52,7 +56,8 @@ class CreateQiuHandler(tornado.web.RequestHandler, ABC):
 		     Date=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
                      Balls=enumerate(balls)
                     ) 
-
+        # 记录日志
+        logging.info('生成双色球%s注: %s' %(create_how_ball,balls))
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
