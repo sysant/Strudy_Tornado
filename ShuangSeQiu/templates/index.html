@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <link rel="stylesheet" href="{{ static_url("style.css") }}">
         <title>双色球</title>
     </head>
@@ -9,8 +11,7 @@
         <p>点击生成双色球注数(默认1注):</p>
         <form method="post" action="/create">
             <input type="number" name="create" class="form_input" placeholder="1">
-<!--            <textarea rows=1 cols=10 name="create" onloadeddata="1"></textarea></p>-->
-        <input type="submit">
+        <input type="submit" value="生成">
         </form>
     </body>
 </html>
