@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ static_url("style.css") }}">
         <title>机选双色球</title>
     </head>
@@ -13,5 +14,9 @@
                 <span> {{ i +1 }} --> {{ball}} </span> </br>
             {% end %}
         </p>
+        <!-- 返回首页 -->
+        <form action="/">
+       <button type="submit">返回首页</button>
+       </form>
     </body>
 </html>
