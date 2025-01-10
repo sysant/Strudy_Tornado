@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+=======
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> 85a0738 (保存本地修改)
         <link rel="stylesheet" href="{{ static_url("style.css") }}">
         <title>机选双色球</title>
     </head>
     <body>
         <h1>您机选了{{ How_balls }} 注双色球:</h1>
         <p>
-            <b></b><span>时间：{{ Date }}</span></b></br>
-            <span>------------------------------------</span></br>
-           {% for i,ball in Balls %}
-                <span> {{ i +1 }} --> {{ball}} </span> </br>
-            {% end %}
+           <b></b><span>时间：{{ Date }}</span></b></br>
+	   <div class="container">
+	   <table>
+              <thead>
+                 <tr>
+	            <th>注数</th>
+                    <th>红球</th>
+                    <th>蓝球</th>
+                 </tr>
+              </thead>
+              <tbody>
+              {% for i,ball in Balls %}
+                 <tr>
+		     <td> {{ i+1 }} </td>
+	             <td>{{ ball['Red'] }} </td>
+		     <td>{{ ball['Blue'] }} </td>
+                 </tr>
+              {% end %}
+              </tbody>
+          </table>
+	   </div>
+	  <!--    <span> 红球:{{ ball['Red'] }} -- 蓝球:{{ ball['Blue'] }} </span> </br> -->
         </p>
         <!-- 返回首页 -->
         <form action="/">

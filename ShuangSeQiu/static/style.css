@@ -1,6 +1,106 @@
-body {
-    font-family: Helvetica,Arial,sans-serif;
-    width: 600px;
-    margin: 0 auto;
-}
-.replaced:hover { color: #00f; }
+/* 基本的样式 */
+  body {
+    background: lightgray  url('0101.gif') center center / cover;
+/*    background: lightgray url('0101.gif') no-repeat center center / cover; */
+    padding: 0;
+    margin: 0; /* 移除body的默认边距 */
+    font-family: Arial, sans-serif;
+
+  /* 使用百分比或视口单位进行自适应 */
+    width: 100%; /* 使用百分比确保容器始终填充其父元素 */
+    max-width: 1200px; /* 设置最大宽度以防止过大 */
+    margin: 0 auto; /* 居中布局 */
+    padding: 20px;
+    box-sizing: border-box; /* 确保padding不会增加元素的总宽度 */
+
+  }
+
+  /* 响应式媒体查询 */
+  @media (max-width: 768px) {
+    .container {
+      /* 在较小的屏幕上，你可能想要改变布局或字体大小 */
+      padding: 10px;
+    }
+    /* 还可以添加更多针对小屏幕的样式 */
+  }
+  audio {
+            display: none;
+        }
+
+  /* 其他元素的样式 */
+  h1 {
+    text-align: center;
+    color: red;
+  }
+  form {
+   text-align: center;
+  }
+
+  p {
+    margin-bottom: 1em;
+    text-align: center;
+    color: white;
+  }
+  table {
+    border-collapse: collapse; /* 应用于表格元素，以合并相邻的边框 */
+    color: white;
+    font-size: 16px;
+  }
+
+  table, th, td {
+    border: 1px solid white; /* 应用于表格、表头和单元格，设置边框 */
+    color: white;
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 14px; /* 应用于表头和单元格，设置内边距 */
+    color: white;
+    font-size: 16px;
+  }
+
+  .container {
+        display: grid;
+        place-items: center; /* 简写属性，相当于 justify-items: center; 和 align-items: center; */
+        height: 300px; /* 示例：使容器占据整个视口的高度 */
+   }
+   .Index {
+   font-size: 16px;
+   }
+
+          /* 为超链接设置一些样式 */
+  a {
+        text-decoration: none; /* 移除下划线 */
+        color: white; /* 设置文本颜色 */
+        font-size: 20px; /* 设置字体大小 */
+/*       padding: 10px 20px; /* 设置内边距 */
+/*       border: 1px solid #ccc; /* 设置边框 */
+/*       border-radius: 5px; /* 设置边框圆角 */
+        text-align: center; /* 超链接内部文本居中（对于块级元素或设置了宽度的行内块元素） */
+    }
+
+     /* 当鼠标悬停在超链接上时改变样式 */
+   a:hover {
+        background-color: green; /* 设置背景色 */
+   }
+
+  .footer,.push {
+	  height: 80px; 
+	  line-height: 80px;
+	  width: 100%;
+	  text-align: center;
+	  bottom: 0px;
+/*	  line-height: auto;
+	  position:absolute;
+	  color: #fff;
+    background-color: #333;
+    margin-top: auto; 
+/*    text-align: center;
+    min-height: 100%;
+    */
+   }
+#clock {
+          font-size: 36px;
+          font-family: Arial, sans-serif;
+          color: #333;
+       }

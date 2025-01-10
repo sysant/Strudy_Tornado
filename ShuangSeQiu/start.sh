@@ -3,10 +3,10 @@
 # chkconfig: 2345 10 90
 # description: ShuangSeQiu 
 
-. /etc/init.d/functions
+. ./functions
 
 started(){
-  nohup python3 ./qiu.py > nohup.out 2>&1 &
+  nohup  /root/py39/bin/python  ./qiu.py > /tmp/nohup.out 2>&1 &
   [ "$?" -eq 0 ] && success $"$base startup" || failure $"$base startup"
   echo
 }

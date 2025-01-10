@@ -1,17 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <meta charset="UTF-8">
+=======
+	<meta charset="UTF-8">
+>>>>>>> 85a0738 (保存本地修改)
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <link rel="stylesheet" href="{{ static_url("style.css") }}">
-        <title>双色球</title>
+        <title>暴富</title>
     </head>
     <body>
-        <h1>生成双色球</h1>
-        <p>点击生成双色球注数(默认1注):</p>
+	<div id="clock"></div>
+	<br>
+        <h1>A股实时行情</h1>
+	<script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+           document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+       }
+        // 初始化时钟
+        updateClock();
+
+        // 每秒更新一次时间
+        setInterval(updateClock, 1000);
+    </script>
+	<div class="container">
+           <table>
+              <thead>
+                 <tr>
+                    <th>交易所</th>
+                    <th>指  数</th>
+                    <th>涨跌(%)</th>
+                    <th>涨跌数</th>
+                 </tr>
+              </thead>
+              <tbody>
+              {% for i,g in GSData %}
+                 <tr>
+	             <td> {{ g['f14'] }} </td>
+                     <td> {{ g['f2'] }} </td>
+                     <td>{{ g['f3'] }} </td>
+                     <td>{{ g['f4'] }} </td>
+                 </tr>
+              {% end %}
+              </tbody>
+          </table>
+           </div>
+	   <br>
+
+        <h1>行情怎么样,彩票来吗?</h1>
         <form method="post" action="/create">
+<<<<<<< HEAD
             <input type="number" name="create" class="form_input" placeholder="1">
+=======
+	<div Index> <input type="number" name="create" class="form_input" placeholder="1"> </div>
+>>>>>>> 85a0738 (保存本地修改)
         <input type="submit" value="生成">
         </form>
+	<footer class="footer">
+		<a href=https://sysant.github.io/> 深沉的运维博客  </a>
+	</footer>
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+	    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	    (function(){
+                      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                      s1.async=true;
+                      s1.src='https://embed.tawk.to/6750109b2480f5b4f5a79e71/1ie8f05ik';
+	              s1.charset='UTF-8';
+		      s1.setAttribute('crossorigin','*');
+		      s0.parentNode.insertBefore(s1,s0);
+		      })();
+         </script>
+         <!--End of Tawk.to Script-->
     </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85a0738 (保存本地修改)
 </html>

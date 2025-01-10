@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩预测</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .magic-animation {
+            animation: magic 2s infinite;
+        }
+        @keyframes magic {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .congratulations {
+            font-size: 24px;
+            animation: growAndFlash 2s infinite alternate;
+            color: #ff6347; /* Tomato color */
+        }
+        @keyframes growAndFlash {
+            0%, 100% { transform: scale(1); color: #ff6347; }
+            50% { transform: scale(1.2); color: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2024下半年软考成绩预测</h1>
+        <button id="predictButton" onclick="predictScores()">点击预测成绩</button>
+        <table id="scoresTable" class="magic-animation">
+            <tr>
+                <th>考试项目</th>
+                <th>分数</th>
+            </tr>
+            <tr>
+                <td>上午选择</td>
+                <td id="choiceScore">0</td>
+            </tr>
+            <tr>
+                <td>上午案例</td>
+                <td id="caseScore">0</td>
+            </tr>
+            <tr>
+                <td>下午论文</td>
+                <td id="paperScore">0</td>
+            </tr>
+        </table>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function predictScores() {
+            const scores = [0, 0, 0];
+            let total = 0;
+
+            for (let i = 0; i < scores.length; i++) {
+                let score;
+                do {
+                    score = Math.floor(Math.random() * (70 - 45 + 1)) + 45;
+                } while (total + score > 240);
+
+                scores[i] = score;
+                total += score;
+            }
+
+            document.getElementById('choiceScore').textContent = scores[0];
+            document.getElementById('caseScore').textContent = scores[1];
+            document.getElementById('paperScore').textContent = scores[2];
+
+            const resultDiv = document.getElementById('result');
+            if (scores.every(score => score >= 45)) {
+                resultDiv.innerHTML = '<span class="congratulations">恭喜通过</span>';
+                resultDiv.classList.add('marquee');
+            } else {
+                resultDiv.textContent = '';
+                resultDiv.classList.remove('marquee');
+            }
+        }
+    </script>
+</body>
+</html>
