@@ -4,10 +4,7 @@ import os.path
 import random
 import time
 import logging
-<<<<<<< HEAD
-=======
 import requests
->>>>>>> 85a0738 (保存本地修改)
 from abc import ABC
 import tornado.httpserver
 import tornado.ioloop
@@ -21,10 +18,6 @@ define("port", default=10800, help="run on the given port", type=int)
 # 使用basicConfig()方法来配置日志的基本信息
 logging.basicConfig(filename='access.log', level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-<<<<<<< HEAD
-=======
-
->>>>>>> 85a0738 (保存本地修改)
 
 class IndexHandler(tornado.web.RequestHandler, ABC):
     def GetGuShi(self):
@@ -66,12 +59,9 @@ class CreateQiuHandler(tornado.web.RequestHandler, ABC):
         self.render('qiu.html', How_balls=create_how_ball, 
 		     Date=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
                      Balls=enumerate(balls)
-<<<<<<< HEAD
                     ) 
         # 记录日志
         logging.info('生成双色球%s注: %s' %(create_how_ball,balls))
-=======
-                    )
         # 记录日志
         logging.info('生成双色球%s注: %s' %(create_how_ball,balls))
 
@@ -86,7 +76,6 @@ class Report(tornado.web.RequestHandler):
             content = file.read()
         self.write(content)        
 
->>>>>>> 85a0738 (保存本地修改)
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
