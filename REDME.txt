@@ -1,0 +1,10 @@
+学习tonado结合前端渲染;
+后端处理生成指定双色球注数;
+前端展示生成的双色球;
+添加对静态页的渲染
+docker部署
+本地机器python 3.6.8 +
+pip install -r requirements.txt
+
+docker build -t qiu .
+docker run -d -p 10800:10800 -v /tmp/qiu/:/ShuangSeQiu/log/ qiu
