@@ -16,7 +16,7 @@ from tornado.options import define, options
 define("port", default=10800, help="run on the given port", type=int)
 
 # 使用basicConfig()方法来配置日志的基本信息
-logging.basicConfig(filename='access.log', level=logging.DEBUG,
+logging.basicConfig(filename='log/access.log', level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 class IndexHandler(tornado.web.RequestHandler, ABC):

@@ -1,10 +1,18 @@
+一. 说明
 学习tonado结合前端渲染;
 后端处理生成指定双色球注数;
 前端展示生成的双色球;
 添加对静态页的渲染
-docker部署
-本地机器python 3.6.8 +
+本地机器需要python 3.6.8 +
+二.docker部署运行
 pip install -r requirements.txt
 
 docker build -t qiu .
+mkdir -pv /tmp/qiu
 docker run -d -p 10800:10800 -v /tmp/qiu/:/ShuangSeQiu/log/ qiu
+
+三. 本地部署运行
+cd Strudy_Tornado/ShuangSeQiu 
+./start.sh start
+
+访问端口号IP:10800
