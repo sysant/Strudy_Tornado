@@ -1,0 +1,2 @@
+tornado==6.1
+chardet==5.0.0
