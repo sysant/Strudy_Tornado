@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qiu-deployment
+  name: qiu-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: qiu-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: qiu-deployment
+    spec:
+      imagePullSecrets:
+      # secrets 需要先创建好
+      - name: registry-ali-hz
+      containers:
+      - name: qiu
+        image: registry.cn-hangzhou.aliyuncs.com/san2005/study:qiu_v2.0
+        volumeMounts:
+        - name: log-volume
+          mountPath: /ShuangSeQiu/log
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /tmp/qiu
+          type: DirectoryOrCreate
